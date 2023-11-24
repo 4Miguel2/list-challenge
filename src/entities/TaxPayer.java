@@ -66,33 +66,38 @@ public class TaxPayer {
         else if (salaryIncome >= 3000.00 && salaryIncome < 5000.00) {
             sum += salaryIncome * 10 / 100;
         }
-        else if (salaryIncome > 5000.00) {
+        else if (salaryIncome >= 5000.00) {
             sum += salaryIncome * 20 / 100;
         }
         return sum;
     }
 
-    public double servicesTex() {
-        double sum = 0;
+    public double servicesTax() {
+        double servicesTax = 0.0;
+
         if (servicesIncome != 0.0) {
-            sum += servicesIncome * 15 / 100;
+            servicesTax = servicesIncome * 15 / 100;
         }
 
-        return sum;
+        return servicesTax;
     }
-    public double capitalTex() {
-        double sum = 0;
+    public double capitalTax() {
+        double capitalTax = 0.0;
+
         if(capitalIncome != 0.0) {
-            sum += capitalIncome * 20 / 100;
+            capitalTax = capitalIncome * 20 / 100;
         }
-        return sum;
+        return capitalTax;
     }
+
     public double grossTax() {
-        return salaryTax() + servicesTex() + capitalTex();
+        return salaryTax() + servicesTax() + capitalTax();
     }
+
     public double taxRebate() {
         double spending = healthSpending + educationSpending;
         double percentageOfTotal = grossTax() * 30 / 100;
+
         double rebate = 0;
         if (spending >= percentageOfTotal) {
             rebate = percentageOfTotal;
@@ -108,12 +113,8 @@ public class TaxPayer {
     }
 
     public String toString() {
-        return "Imposto bruto total: "+
-                toString().formatted("%.2f%n"+ grossTax()) +
-                "Abatimento: "+
-                toString().formatted("%.2f%n" + taxRebate())+
-                "Imposto devido: "+
-                toString().formatted("%.2f%n" + netTax());
+        return String.format("Imposto bruto total: %.2f%nAbatimento: %.2f%nImposto devido: %.2f%n",
+                grossTax(), taxRebate(), netTax());
     }
 
 
