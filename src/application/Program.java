@@ -49,12 +49,8 @@ public class Program {
             System.out.println("Resumo do "+(1 + i) +"o contribuinte:");
             System.out.println(taxpayers);
         }
-        //Acredito que fiz tudo correto porém no pdf, o exemplo 1 diz que o bruto total é 4960
-        // mas no meu programa ele fornece o valor 9760
-        // o segundo exemplo ocorre corretamente.
+
         sc.close();
 
     }
-
-
 }

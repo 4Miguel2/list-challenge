@@ -117,6 +117,4 @@ public class TaxPayer {
                 grossTax(), taxRebate(), netTax());
     }
 
-
-
 }
